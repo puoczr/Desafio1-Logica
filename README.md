@@ -1,5 +1,6 @@
 # Desafio1-Logica
 Questão desafio 1 de lógica para computação
+Os arquivos com nome "teste" são modificações feitas pra consertar erros que serão excluídos a posteriori.
 
 Dicionário do desafio:
 	Os conectivos lógicos são representados por: v,^,~,> e <>. Elas significam, respectivamente: OU, E, NÃO, SE, SE E SOMENTE SE.
