@@ -19,7 +19,7 @@ char frase[100];
 int classificarchar(char q)
 {
 	if((q>=65 && q<=90) || q =='t' || q =='f')
-		{return 1;contsimb++;}
+		{contsimb+=1;return 1;}
 	else
 		if(q == 'v'|| q == '^'|| q == '>')
 			return 2;
@@ -94,7 +94,7 @@ int main()
 	scanf("%s",&frase);
 	x=frase[0];
 	while(frase[0]!='0'){
-	if(frase[0]!='~' && (frase[0] < 65 || frase[0] > 90) && frase[0]!='('){
+	if(frase[0]!='~' && (frase[0] < 65 || frase[0] > 90) && frase[0]!='(' && frase[0]!='t' && frase[0]!='f'){
 		printf("Não houve frase inserida ou o início está adulterado, reiniciando o programa.\n");
 		main();}
 	else
