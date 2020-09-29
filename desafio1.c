@@ -3,7 +3,7 @@
 #include <locale.h>
 
 
-int i, contador;
+int i, contador,contsimb;
 char frase[100];
 
 // DICIONÁRIO:
@@ -19,7 +19,7 @@ char frase[100];
 int classificarchar(char q)
 {
 	if((q>=65 && q<=90) || q =='t' || q =='f')
-		return 1;
+		{contsimb+=1;return 1;}
 	else
 		if(q == 'v'|| q == '^'|| q == '>')
 			return 2;
@@ -38,9 +38,8 @@ int classificarchar(char q)
 
 void errolog()
 {
-	printf("\nHouve um erro de lógica na posição %d da frase, finalizando programa.", i+1);
-	getchar();
-	exit(0);
+	printf("\nHouve um erro de logica na posicao %d da frase, voltando pro ponto de inicio:", i+1);
+	main();
 }
 
 void verificarlog1()
@@ -88,14 +87,16 @@ int main()
 {
 	int verificar;
 	char x;
-	contador=0;
-	setlocale(LC_ALL, "Portuguese");
+	contador=0; contsimb=0;
+	//setlocale(LC_ALL, "Portuguese");
+	printf("\n\nCaso queira encerrar o programa, insira apenas 0 (zero)");
 	printf("\nEscreva uma frase proposicional a ser analisada: ");
 	scanf("%s",&frase);
 	x=frase[0];
-	if(frase[0]!='~' && (frase[0] < 65 || frase[0] > 90) && frase[0]!='('){
-		printf("Não houve frase inserida ou o início está adulterado, encerrando programa.");
-		getchar();}
+	while(frase[0]!='0'){
+	if(frase[0]!='~' && (frase[0] < 65 || frase[0] > 90) && frase[0]!='(' && frase[0]!='t' && frase[0]!='f'){
+		printf("Nao houve frase inserida ou o inicio esta adulterado, reiniciando o programa.\n");
+		main();}
 	else
 	{
 		for(i=0; x!='\0';i++,x=frase[i])
@@ -119,19 +120,28 @@ int main()
 					verificarlog5();
 					break;
 				default:
-					printf("\nAlgum caracter não especificado no Dicionário foi encontrado.");
-					printf("\nComo tal não deveria ocorrer, o programa está sendo encerrado.");
-					exit(0);
+					printf("\nAlgum caracter nao especificado no Dicionario foi encontrado.");
+					printf("\nComo tal nao deveria ocorrer, insira outra frase pra recomecar: ");
+					main();
 			}
 		}
-		if(contador!=0){
-			printf("\nFaltou o parênteses em alguma posição da frase, logo, ela é inválida.");
-			getchar();
-			exit(0);
+		if(contsimb==0)
+		{
+			printf("\nNao foi inserido nenhum simbolo proposicional, logo, nao eh uma frase valida");
+			printf("\nReiniciando programa: \n");
+			main();
 		}
-		else
-			printf("\nA frase proposicional é lógica e válida.");
+		else{
+			if(contador!=0){
+				printf("\nFaltou o parenteses em alguma posicao da frase, logo, ela eh invalida.");
+				printf("\nReiniciando o programa: \n");
+				main();
+			}
+			else
+				{printf("\nA frase proposicional eh logica e valida.\n");
+				main();}
+		}
 	}
-	getchar();
+	}
 	return 0;
 }
