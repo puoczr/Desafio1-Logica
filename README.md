@@ -21,13 +21,13 @@ Verificações:
 (True e false), só podem aparecer: fechamento de parênteses ')' ou um conectivo.
 2: Depoiis de um símbolo de conectivo, só pode aparecer 4 tipos de símbolos:
 De proposição (P,Q,R), de verdade (True, False), '(' (abertura de parênteses) e
-símbolo de negação (~).
+símbolo de negação ('~').
 3: O símbolo de bicondição, no programa, foi expresso por <>. Caso após o char 
 '<' não vier '>', o programa dá erro direto.
 4:Depois de '(', só pode vir ou outro '(', um Símbolo proposicional (P,Q), um 
-símbolo de verdade (True, false) ou o conectivo de negação (~)
+símbolo de verdade (True, false) ou o conectivo de negação ('~')
 4.1:Depois de ')', só pode vir outro ')' ou um conectivo proposicional.
 4.2:Existe um contador de parênteses, e caso tenho mais abertura de parênteses do
 que fechamentos, ou vice versa, ele indica erro.
-5:Após o conectivo de negação (~), só pode vir em seguida outro '~' ou um símbolo
+5:Após o conectivo de negação ('~'), só pode vir em seguida outro '~' ou um símbolo
 proposicional/ de verdade, ou um '(' 
